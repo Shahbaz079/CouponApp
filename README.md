@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Round-Robin Coupon Distribution with Abuse Prevention
 
-## Getting Started
+This is a live web application that distributes coupons sequentially to users while preventing abuse using IP and cookie tracking.
 
-First, run the development server:
+🔗 **Live Demo:**(https://coupon-app-six.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation & Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**  
+   ```sh
+   git clone https://github.com/Shahbaz079/CouponApp.git
+   cd CouponApp
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install Dependencies**  
 
-## Learn More
+   npm install
 
-To learn more about Next.js, take a look at the following resources:
+3. **Set Up environmental variables**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   MONGODB_URI=your_mongodb_connection_string
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Run the project locally**   
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### 📌 **3. Abuse Prevention Mechanisms**  
+```md
+## Abuse Prevention Strategies
+
+To prevent multiple coupon claims:
+- **IP Tracking**: Each claim is linked to the user's IP and stored in the database. If the same IP tries to claim another coupon within an hour, they are blocked.
+- **Cookie Tracking**: A cookie is set when a coupon is claimed, preventing users from claiming again even if they switch networks or refresh the page.
+
+
+
+## How to Claim a Coupon?
+1. Visit the website.
+2. Click the "Claim Coupon" button.
+3. If successful, you'll receive a coupon code.
+4. If you've already claimed one, you'll see a message telling you when you can try again.
+
+
+## Deployment
+
+This application is deployed using **Vercel**.
+
+To deploy your own version:
+1. Push the code to GitHub.
+2. Connect the repository to **Vercel**.
+3. Configure **environment variables**.
+4. Deploy!
+
+🔗 **Live Demo:**(https://coupon-app-six.vercel.app)
